@@ -1,0 +1,26 @@
+<br>
+<a href="/meetups"> GO HOME </a>
+<h1 style="text-align: center;"> MEETUP </h1>
+
+<h2> Name: <%= @meetup.name %> </h2>
+
+<p> Location: <%= @meetup.location %> </p>
+<p> Description: <%= @meetup.description %> </p>
+
+<br>
+<br>
+<h3> People Attending This Meetup </h3>
+
+
+<% @meetup_users.each do |person| %>
+  <p> <%=  person.username %> </p>
+  <img src="<%=  person.avatar_url %>" height="85" width="85"/>
+<% end %>
+
+
+<p> <%= @error %> </p>
+
+
+<form action="/meetups/<%= @meetup.id %>/join" method="post">
+  <input type="submit" value="JOIN">
+</form>
